@@ -1,0 +1,19 @@
+# Node dependencies
+**/node_modules/
+**/dist/
+
+# Java/Maven build files
+**/target/
+**/.mvn/
+**/maven/
+*.jar
+*.war
+
+# IDE and OS files
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+bin/
+.DS_Store
