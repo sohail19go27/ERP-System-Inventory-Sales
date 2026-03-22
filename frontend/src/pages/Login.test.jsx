@@ -23,10 +23,10 @@ describe('Login Component', () => {
         );
 
         // Check if important elements are rendered
-        expect(screen.getByRole('heading', { name: /login/i })).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: /sign in/i })).toBeInTheDocument();
         expect(screen.getByLabelText(/username/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /login/i })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
     });
 
     it('captures user input and attempts login on submit', async () => {
@@ -44,7 +44,7 @@ describe('Login Component', () => {
         fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'password123' } });
 
         // Submit the form
-        fireEvent.click(screen.getByRole('button', { name: /login/i }));
+        fireEvent.click(screen.getByRole('button', { name: /sign in/i }));
 
         // Wait for the async login attempt
         await waitFor(() => {
@@ -61,7 +61,8 @@ describe('Login Component', () => {
         );
 
         // Submit form without filling it out
-        fireEvent.click(screen.getByRole('button', { name: /login/i }));
+        const submitButton = screen.getByRole('button', { name: /sign in/i });
+        fireEvent.submit(submitButton.closest('form') || submitButton);
 
         // Check for Yup validation errors
         await waitFor(() => {

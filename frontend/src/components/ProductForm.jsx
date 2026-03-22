@@ -84,7 +84,7 @@ const ProductForm = ({ open, handleClose, product, refreshProducts }) => {
       handleClose();
     } catch (err) {
       console.error(err);
-      setApiError('An error occurred while saving the product. SKU might already exist.');
+      setApiError(err.response?.data?.message || err.message || 'An error occurred while saving the product. SKU might already exist.');
     }
   };
 
