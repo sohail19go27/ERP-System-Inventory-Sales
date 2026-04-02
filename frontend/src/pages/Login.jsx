@@ -33,6 +33,10 @@ const Login = () => {
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: {
+      username: 'admin',
+      password: 'password123'
+    }
   });
 
   const onSubmit = async (data) => {
